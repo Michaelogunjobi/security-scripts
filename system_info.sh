@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "================================================"
+echo "SYSTEM INFORMATION REPORT"
+echo "================================================"
+echo ""
+echo "Hostname: $(hostname)"
+echo "Date: $(date)"
+echo "Uptime: $(uptime -p)"
+echo "Logged in users: $(who | wc -l)"
+echo "Running processes: $(ps aux | wc -l)"
+echo ""
+echo "================================================"
+echo "NETWORK INFORMATION"
+echo "================================================"
+echo ""
+echo "IP Address: $(ip addr show | grep 'inet' | awk '{print $2}'| head -1)"
+echo "Open ports: $(ss -tulpn | grep LISTEN | wc -l)"
+echo ""
+echo "================================================"
+echo "  DISK USAGE"
+echo "================================================"
+df -h
